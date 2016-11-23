@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="20dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.muslimmuhammad.kepoin.activity.KepoIn"
+    tools:showIn="@layout/app_bar_kepo_in">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="12dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tari - Tarian"
+                android:id="@+id/textView1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pakaian Adat"
+                android:id="@+id/textView2"
+                android:layout_below="@+id/imageButton2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rumah Adat"
+                android:id="@+id/textView3"
+                android:textStyle="bold"
+                android:layout_below="@+id/imageButton3"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:id="@+id/imageButton4"
+                android:layout_below="@+id/imageButton3"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/efekrumah" />
+                android:layout_marginTop="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Flora"
+                android:id="@+id/textView4"
+                android:textStyle="bold"
+                android:layout_alignTop="@+id/imageButton4"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="150dp" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:id="@+id/imageButton5"
+                android:layout_below="@+id/imageButton4"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/efekmakanan" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fauna"
+                android:id="@+id/textView5"
+                android:textStyle="bold"
+                android:layout_alignTop="@+id/imageButton4"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="315dp" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:id="@+id/imageButton6"
+                android:layout_below="@+id/imageButton5"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/efekpermainan" />
+
+            <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:id="@+id/imageButton3"
+                android:layout_below="@+id/textView2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/efekbajuadat" />
+
+            <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:id="@+id/imageButton2"
+                android:layout_below="@+id/textView1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/efektaritarian" />
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

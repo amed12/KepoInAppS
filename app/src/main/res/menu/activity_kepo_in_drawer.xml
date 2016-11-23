@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_menu_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@mipmap/ic_star_rate_black_18dp"
+            android:title="Terpopuler" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@mipmap/ic_account_circle_black_24dp"
+            android:title="Postinganku" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_menu_about"
+            android:title="About" />
+    </group>
+
+    <item android:title="Share Kepo Mu">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_quit"
+                android:title="Quit" />
+        </menu>
+    </item>
+
+</menu>

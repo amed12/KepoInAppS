@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_post"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground"
+    >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00ffffff"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:id="@+id/imageBro"
+                android:src="@mipmap/klik"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                />
+
+            <EditText
+                android:singleLine="true"
+                android:id="@+id/edt1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageBro"
+                android:background="@drawable/input_outline"
+                android:padding="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="Judul Posting"
+
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:hint="Penjelasan"
+                android:id="@+id/edt3"
+                android:layout_below="@+id/edt1"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/input_outline"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:padding="15dp"
+                />
+
+
+
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/btn_input"
+                android:text="Upload"
+                android:textColor="@color/colorPrimary"
+                android:layout_alignParentBottom="true"
+                />
+
+        </RelativeLayout>
+
+
+</RelativeLayout>

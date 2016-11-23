@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "462570300224",
+    "firebase_url": "https://kepoin-app.firebaseio.com",
+    "project_id": "kepoin-app",
+    "storage_bucket": "kepoin-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462570300224:android:9b2d6c6292711d5e",
+        "android_client_info": {
+          "package_name": "com.example.muslimmuhammad.kepoin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "462570300224-gai8g8jppd3ss87gahoaa8kifjk9c2tc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.muslimmuhammad.kepoin",
+            "certificate_hash": "5FF6768FF902FAB76F9ADE4AC1BD2593ABE1362A"
+          }
+        },
+        {
+          "client_id": "462570300224-fnmjmpuagg20mei0j78f4muv7orb25eh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlYk5yIciS3l8HKpvv6576EYyhj6fpsrc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "462570300224-fnmjmpuagg20mei0j78f4muv7orb25eh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
