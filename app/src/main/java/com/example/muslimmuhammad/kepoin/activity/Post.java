@@ -95,6 +95,13 @@ public class Post extends AppCompatActivity {
 
 
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        loadphoto();
+    }
+
     private void assignUIEvent() {
         refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -104,6 +111,7 @@ public class Post extends AppCompatActivity {
         });
     }
     private void loadphoto(){
+
         if(mBlogList != null){
             mBlogList.setHasFixedSize(true);
         }
@@ -143,9 +151,6 @@ public class Post extends AppCompatActivity {
             super(itemView);
             mView = itemView;
             descbro = (TextView)mView.findViewById(R.id.post_text);
-
-
-
             ImageBro = (ImageView)mView.findViewById(R.id.post_image);
             titlebro = (TextView)mView.findViewById(R.id.post_title);
         }
@@ -156,11 +161,11 @@ public class Post extends AppCompatActivity {
 
 
     }
-    public void onBackPressed() {
-        super.onBackPressed();
-        if (fab.getVisibility() == View.GONE)
-            fab.setVisibility(View.VISIBLE);
-    }
+//    public void onBackPressed() {
+//        super.onBackPressed();
+//        if (fab.getVisibility() == View.GONE)
+//            fab.setVisibility(View.VISIBLE);
+//    }
     private void showProgress(){
         if (!refresh.isRefreshing()){
             progressbar.setVisibility(View.VISIBLE);

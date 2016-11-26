@@ -29,7 +29,7 @@ public class Province extends AppCompatActivity {
         jupuk1.setText(getIntent().getStringExtra("nama"));
         //Membuat Adapter
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(context,
-                R.layout.item_list, arrayProvince);
+                R.layout.item_province, arrayProvince);
 
         //Mengatur adapter
         listView.setAdapter(arrayAdapter);

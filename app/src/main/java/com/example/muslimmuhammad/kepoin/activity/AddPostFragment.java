@@ -41,7 +41,7 @@ public class AddPostFragment extends AppCompatActivity {
     private ImageButton txtimage;
     private Button bSubmit;
     private Uri mImageUri = null;
-
+    private DatabaseReference mDatabase;
     private ProgressDialog mProgress;
 
 
@@ -55,6 +55,8 @@ public class AddPostFragment extends AppCompatActivity {
         txtimage = (ImageButton) findViewById(R.id.imageBro);
         bSubmit = (Button)findViewById(R.id.btn_input);
         mDatabaseReference = FirebaseStorage.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Post");
+
 
         mProgress = new ProgressDialog(this);
 
@@ -69,66 +71,72 @@ public class AddPostFragment extends AppCompatActivity {
             }
         });
 
-        bSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startPosting();
-            }
-        });
-
-    }
-
-
-
-    private void startPosting() {
-        mProgress.setMessage("Uploading to post...");
-
-        mProgress.show();
-        String title_val = txttitle.getText().toString().trim();
-        String desc_val = txtdesc.getText().toString().trim();
-        //if (!TextUtils.isEmpty(title_val) && !TextUtils.isEmpty(desc_val) && mImageUri != null) {
-            txtdesc.setError("data harus diisi");
-            txttitle.setError("data harus di isi");
-            StorageReference filepath = mDatabaseReference.child("data_tarian").child(mImageUri.getLastPathSegment());
-            filepath.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Uri dowloadUrl = taskSnapshot.getDownloadUrl();
-                    mProgress.dismiss();
-                }
-            });
 
 
     }
+
+
+
+
 
 
 
      @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, final Intent data) {
          super.onActivityResult(requestCode, resultCode, data);
 
          if (requestCode == GALLERY_REQUEST && resultCode == RESULT_OK) {
              mImageUri = data.getData();
 
              txtimage.setImageURI(mImageUri);
-             mProgress.setMessage("Uploading to post...");
-
-             mProgress.show();
 
 
-             StorageReference filepath = mDatabaseReference.child("image_post").child(mImageUri.getLastPathSegment());
-             filepath.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+
+             bSubmit.setOnClickListener(new View.OnClickListener() {
                  @Override
-                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                     Uri dowloadUrl = taskSnapshot.getDownloadUrl();
-                     mProgress.dismiss();
+                 public void onClick(View view) {
+
+                     mProgress.setMessage("Uploading to post...");
+
+
+                     final String title_val = txttitle.getText().toString().trim();
+                     final String desc_val = txtdesc.getText().toString().trim();
+                     if (!TextUtils.isEmpty(title_val) && !TextUtils.isEmpty(desc_val) && mImageUri != null) {
+                         mProgress.show();
+                         txtdesc.setError("data harus diisi");
+                         txttitle.setError("data harus di isi");
+
+                         StorageReference filepath = mDatabaseReference.child("image_post").child(mImageUri.getLastPathSegment());
+                         filepath.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                             @Override
+                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                 Uri dowloadUrl = taskSnapshot.getDownloadUrl();
+                                 DatabaseReference newPost = mDatabase.push();
+                                 newPost.child("judul").setValue(title_val);
+                                 newPost.child("penjelasan").setValue(desc_val);
+                                 newPost.child("image").setValue(dowloadUrl.toString());
+
+                                 mProgress.dismiss();
+                                 startActivity(new Intent(AddPostFragment.this,Kepo_Post.class));
+
+                             }
+                         });
+
+
+                     }
                  }
              });
 
 
+
+
          }
+     }
+
+
+
 
      }
 
 
-}
+

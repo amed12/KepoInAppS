@@ -4,6 +4,7 @@ package com.example.muslimmuhammad.kepoin.activity;
 import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -19,16 +20,43 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.muslimmuhammad.kepoin.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class KepoIn extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     ImageButton img1,img2,img3,img4,img5;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth2;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private DatabaseReference mDatabaseUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kepo_in);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Users");
+        mDatabaseUser.keepSynced(true);
+        mAuth = FirebaseAuth.getInstance();
+        mAuth2 = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                if(firebaseAuth.getCurrentUser() == null){
+                    Intent loginIntent = new Intent(KepoIn.this,LoginActivity.class);
+                    loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(loginIntent);
+                }
+            }
+        };
+
 
 
 
@@ -95,7 +123,33 @@ public class KepoIn extends AppCompatActivity
             }
         });
     }
+    private void checkUserExist() {
+        final String user_id = mAuth2.getCurrentUser().getUid();
+        mDatabaseUser.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(!dataSnapshot.hasChild(user_id)){
+                    Intent setupIntent = new Intent(KepoIn.this,Setup_activity.class);
+                    setupIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(setupIntent);
+                }
+            }
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //checkUserExist();
+
+        mAuth.addAuthStateListener(mAuthListener);
+    }
 
     @Override
     public void onBackPressed() {
@@ -125,8 +179,15 @@ public class KepoIn extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
+        if (id == R.id.action_logout) {
+            logout();
+        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void logout() {
+        mAuth.signOut();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -137,9 +198,7 @@ public class KepoIn extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             Toast.makeText(this,"Halaman Utama KepoIn",Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_gallery) {
-            Toast.makeText(this,"Postingan Terpopuler",Toast.LENGTH_SHORT).show();
-        }else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_manage) {
             Toast.makeText(this, "Postingan Anda", Toast.LENGTH_SHORT).show();
         }else if (id == R.id.nav_about){
             Toast.makeText(this, "Informasi Tentang Pengembang", Toast.LENGTH_SHORT).show();
