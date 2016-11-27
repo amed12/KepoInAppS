@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -20,9 +21,16 @@ import android.widget.Toast;
 
 import com.example.muslimmuhammad.kepoin.R;
 import com.example.muslimmuhammad.kepoin.model.PostModel;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -43,6 +51,11 @@ public class AddPostFragment extends AppCompatActivity {
     private Uri mImageUri = null;
     private DatabaseReference mDatabase;
     private ProgressDialog mProgress;
+    private FirebaseAuth mAuth;
+    private FirebaseUser mCurrentUser;
+    private DatabaseReference mDatabaseUser;
+
+    String province,kategori;
 
 
 
@@ -50,13 +63,17 @@ public class AddPostFragment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.upload_user);
+        mAuth = FirebaseAuth.getInstance();
+        mCurrentUser = mAuth.getCurrentUser();
         txtdesc = (EditText) findViewById(R.id.edt3);
         txttitle = (EditText) findViewById(R.id.edt1);
         txtimage = (ImageButton) findViewById(R.id.imageBro);
         bSubmit = (Button)findViewById(R.id.btn_input);
         mDatabaseReference = FirebaseStorage.getInstance().getReference();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Post");
-
+        mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Users").child(mCurrentUser.getUid());
+         province = getIntent().getStringExtra("data1");
+         kategori = getIntent().getStringExtra("data2");
 
         mProgress = new ProgressDialog(this);
 
@@ -101,6 +118,8 @@ public class AddPostFragment extends AppCompatActivity {
 
                      final String title_val = txttitle.getText().toString().trim();
                      final String desc_val = txtdesc.getText().toString().trim();
+
+
                      if (!TextUtils.isEmpty(title_val) && !TextUtils.isEmpty(desc_val) && mImageUri != null) {
                          mProgress.show();
                          txtdesc.setError("data harus diisi");
@@ -110,14 +129,40 @@ public class AddPostFragment extends AppCompatActivity {
                          filepath.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                              @Override
                              public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                 Uri dowloadUrl = taskSnapshot.getDownloadUrl();
-                                 DatabaseReference newPost = mDatabase.push();
-                                 newPost.child("judul").setValue(title_val);
-                                 newPost.child("penjelasan").setValue(desc_val);
-                                 newPost.child("image").setValue(dowloadUrl.toString());
+                                 final Uri dowloadUrl = taskSnapshot.getDownloadUrl();
+                                 final DatabaseReference newPost = mDatabase.push();
 
+                                 mDatabaseUser.addValueEventListener(new ValueEventListener() {
+                                     @Override
+                                     public void onDataChange(DataSnapshot dataSnapshot) {
+                                         newPost.child("judul").setValue(title_val);
+                                         newPost.child("penjelasan").setValue(desc_val);
+                                         newPost.child("image").setValue(dowloadUrl.toString());
+                                         newPost.child("provinsi").setValue(province);
+                                         newPost.child("kategori").setValue(kategori);
+                                         newPost.child("uid").setValue(mCurrentUser.getUid());
+                                         newPost.child("username").setValue(dataSnapshot.child("name").getValue()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                             @Override
+                                             public void onComplete(@NonNull Task<Void> task) {
+                                                 if(task.isSuccessful()){
+                                                     startActivity(new Intent(AddPostFragment.this,Kepo_Post.class));
+
+
+                                                 }
+
+                                             }
+                                         });
+
+
+                                     }
+
+                                     @Override
+                                     public void onCancelled(DatabaseError databaseError) {
+
+                                     }
+                                 });
                                  mProgress.dismiss();
-                                 startActivity(new Intent(AddPostFragment.this,Kepo_Post.class));
+
 
                              }
                          });

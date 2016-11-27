@@ -45,7 +45,7 @@ public class KepoIn extends AppCompatActivity
         mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Users");
         mDatabaseUser.keepSynced(true);
         mAuth = FirebaseAuth.getInstance();
-        mAuth2 = FirebaseAuth.getInstance();
+
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -122,9 +122,10 @@ public class KepoIn extends AppCompatActivity
                 startActivity(pindah);
             }
         });
+         //checkUserExist();
     }
     private void checkUserExist() {
-        final String user_id = mAuth2.getCurrentUser().getUid();
+        final String user_id = mAuth.getCurrentUser().getUid();
         mDatabaseUser.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -146,7 +147,7 @@ public class KepoIn extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
-        //checkUserExist();
+
 
         mAuth.addAuthStateListener(mAuthListener);
     }
@@ -199,6 +200,8 @@ public class KepoIn extends AppCompatActivity
         if (id == R.id.nav_camera) {
             Toast.makeText(this,"Halaman Utama KepoIn",Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_manage) {
+            Intent pindahKepost = new Intent(KepoIn.this,Kepo_Post.class);
+            startActivity(pindahKepost);
             Toast.makeText(this, "Postingan Anda", Toast.LENGTH_SHORT).show();
         }else if (id == R.id.nav_about){
             Toast.makeText(this, "Informasi Tentang Pengembang", Toast.LENGTH_SHORT).show();

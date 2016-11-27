@@ -10,15 +10,64 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.muslimmuhammad.kepoin.activity.Setup_activity">
 
-    <EditText
+    <TextView
+        android:text="SETUP ACCOUNT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Setup Page"
-        android:ems="10"
-        android:id="@+id/editText2"
-        android:textAlignment="center"
-        android:textStyle="normal|bold|italic"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView"
+        android:typeface="sans"
+        android:textSize="18sp"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textStyle="normal|bold"
+        android:textAlignment="center" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00ffffff"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+
+                android:id="@+id/imageBro"
+                android:src="@mipmap/ic_launcher"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                />
+            <EditText
+                android:singleLine="true"
+                android:id="@+id/edt1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageBro"
+                android:background="@drawable/input_outline"
+                android:padding="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="ID"
+
+                />
+            <Button
+                android:layout_below="@+id/edt1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_input"
+                android:text="INPUT"
+                android:textColor="@color/colorPrimary"
+                android:layout_alignParentBottom="true"/>
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+
 </RelativeLayout>

@@ -62,6 +62,8 @@ public class Post extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(Post.this,AddPostFragment.class);
+                intent.putExtra("data1", province);
+                intent.putExtra("data2",kategori);
                 startActivity(intent);
 
                 //animation being used to make floating actionbar disappear
@@ -134,6 +136,7 @@ public class Post extends AppCompatActivity {
                 Picasso.with(Post.this).load(model.getImage()).into(viewHolder.ImageBro);
                 viewHolder.titlebro.setText(model.getNama());
 
+
             }
         };
 
@@ -147,6 +150,7 @@ public class Post extends AppCompatActivity {
         TextView titlebro;
         TextView descbro;
         ImageView ImageBro;
+
         public BlogViewHolder(View itemView) {
             super(itemView);
             mView = itemView;
