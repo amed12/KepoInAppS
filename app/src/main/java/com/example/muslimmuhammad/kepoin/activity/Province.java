@@ -15,7 +15,9 @@ import com.example.muslimmuhammad.kepoin.R;
 public class Province extends AppCompatActivity {
     Context context;
     //    //Membuat data
-    String arrayProvince []= {"aceh", "kepri", "riau", "sumatera-barat", "sumatera-utara"};
+    String arrayProvince []= {"Aceh","Bali","Bangka Belitung","Banten","Bengkulu","Gorontalo","Jakarta","Jambi","Jawa Barat","Jawa Tengah","Jawa Timur","Kalimantan Barat","Kalimantan Selatan","Kalimantan Tengah","kalimantan Timur","Kepuluan Riau","Lampung","Maluku","Maluku Utara","Nusa Tenggara Barat","Nusa Tenggara Timur","Papua","Papua Barat","Riau","Sulawesi Barat","Sulawesi Selatan","Sulawesi Tengah","Sulawesi Tenggara","Sumatera Utara","Sumatera Barat","Sumatera Selatan","Yogyakarta"
+
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

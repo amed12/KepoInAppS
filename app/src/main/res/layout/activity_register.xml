@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_register"
     android:layout_width="match_parent"
@@ -10,31 +11,15 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.muslimmuhammad.kepoin.activity.RegisterActivity">
 
-    <EditText
+    <Button
+        android:text="Sign Up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_marginLeft="11dp"
-        android:layout_marginStart="11dp"
-        android:id="@+id/nameField"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:hint="Your Name" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:layout_below="@+id/nameField"
-        android:layout_alignLeft="@+id/nameField"
-        android:layout_alignStart="@+id/nameField"
-        android:id="@+id/emailField"
-        android:hint="email..." />
+        android:id="@+id/registerBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="86dp"
+        android:background="@color/colorPrimaryDark" />
 
     <EditText
         android:layout_width="match_parent"
@@ -42,17 +27,76 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passwordField"
-        android:layout_below="@+id/emailField"
-        android:layout_alignLeft="@+id/emailField"
-        android:layout_alignStart="@+id/emailField"
-        android:hint="Password.." />
+        android:hint="Password.."
+        android:layout_above="@+id/registerBtn"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="35dp"
+        android:layout_toRightOf="@+id/imageView6"
+        android:layout_toEndOf="@+id/imageView6" />
 
-    <Button
-        android:text="Sign Up"
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/registerBtn"
-        android:layout_below="@+id/passwordField"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/nameField"
+        android:hint="Your Name"
+        android:layout_above="@+id/emailField"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/imageView5"
+        android:layout_toEndOf="@+id/imageView5" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/user"
+        android:id="@+id/imageView5"
+        android:layout_above="@+id/emailField"
+        android:layout_alignTop="@+id/nameField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/message"
+        android:id="@+id/imageButton"
+        android:background="@android:color/transparent"
+        android:layout_toLeftOf="@+id/emailField"
+        android:layout_alignBottom="@+id/emailField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/nameField" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/key"
+        android:layout_below="@+id/imageButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/imageView6" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/logokepo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="13dp" />
+        android:id="@+id/imageView7"
+        android:layout_above="@+id/nameField" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/emailField"
+        android:hint="email..."
+        android:layout_above="@+id/passwordField"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/imageView5"
+        android:layout_toEndOf="@+id/imageView5" />
 </RelativeLayout>

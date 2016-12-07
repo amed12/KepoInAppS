@@ -12,13 +12,21 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.example.muslimmuhammad.kepoin.R;
+import com.example.muslimmuhammad.kepoin.model.KepoPost;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -90,6 +98,40 @@ public class Setup_activity extends AppCompatActivity {
 
 
         }
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        loadphoto();
+
+    }
+    private void loadphoto(){
+        mDatabaseUser.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String username = (String) dataSnapshot.child("name").getValue();
+
+                String post_image = (String) dataSnapshot.child("image").getValue();
+
+
+                mNameField.setText(username);
+
+                //Picasso.with(Setup_activity.this).load(post_image).placeholder(R.drawable.common_full_open_on_phone).into(mSetupImageBtn);
+
+//                Picasso.with(Setup_activity.this).load(post_image).into(mSetupImageBtn);
+//                mSetupImageBtn.setImageResource();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
 
     }
 

@@ -71,6 +71,7 @@ public class Kepo_Post extends AppCompatActivity {
         super.onStart();
         loadphoto();
     }
+
     private void loadphoto(){
 
         showProgress();

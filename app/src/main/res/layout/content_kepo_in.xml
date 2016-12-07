@@ -63,7 +63,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/efekrumah" />
-                android:layout_marginTop="15dp" />
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -84,7 +84,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/efekmakanan" />
+                android:background="@drawable/efekflora"
+                android:src="@drawable/efekflora" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -105,7 +106,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/efekpermainan" />
+                android:background="@drawable/efekfauna"
+                android:src="@drawable/efekfauna" />
 
             <ImageButton
             android:layout_width="match_parent"
@@ -114,7 +116,8 @@
                 android:layout_below="@+id/textView2"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:background="@drawable/efekbajuadat" />
+                android:background="@drawable/efekbajuadat"
+            />
 
             <ImageButton
             android:layout_width="match_parent"
@@ -123,7 +126,8 @@
                 android:layout_below="@+id/textView1"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:background="@drawable/efektaritarian" />
+                android:background="@drawable/efektaritarian"
+            />
 
         </RelativeLayout>
     </ScrollView>

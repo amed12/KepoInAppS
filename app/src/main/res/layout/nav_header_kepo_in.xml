@@ -13,11 +13,11 @@
     android:background="@drawable/side_nav_bar">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView32"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:src="@drawable/logo"
+        android:src="@drawable/logokepo"
         android:layout_weight="0.60" />
 
 </LinearLayout>

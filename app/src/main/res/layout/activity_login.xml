@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
@@ -9,6 +10,25 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.muslimmuhammad.kepoin.activity.LoginActivity">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </ScrollView>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"></RelativeLayout>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/passfield"
+        android:hint="Password .. "
+        android:layout_above="@+id/lgnbtn"
+        android:layout_marginBottom="27dp"
+        android:layout_toRightOf="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView2" />
 
     <EditText
         android:layout_width="match_parent"
@@ -16,37 +36,57 @@
         android:inputType="textPersonName"
         android:hint="Email.."
         android:ems="10"
+        android:id="@+id/email1field"
+        android:layout_alignBottom="@+id/passfield"
+        android:layout_marginBottom="46dp"
+        android:layout_toRightOf="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView2" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/user"
+        android:layout_alignTop="@+id/email1field"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/imageView2" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/key"
+        android:id="@+id/imageView3"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignBottom="@+id/passfield"
+        android:layout_toLeftOf="@+id/passfield"
+        android:layout_toStartOf="@+id/passfield" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/logokepo"
+        android:id="@+id/imageView4"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/email1field" />
+        android:layout_marginTop="35dp" />
 
-    <EditText
-        android:layout_width="match_parent"
+    <Button
+        android:text="Create new Account"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:layout_below="@+id/emailfield"
-        android:layout_alignLeft="@+id/emailfield"
-        android:layout_alignStart="@+id/emailfield"
-        android:layout_marginTop="30dp"
-        android:id="@+id/passfield"
-        android:hint="Password .. " />
+        android:id="@+id/signUpbtn"
+        android:layout_width="match_parent"
+        android:background="@android:color/holo_blue_dark"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:text="Log In"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/passfield"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp"
 
-        android:id="@+id/lgnbtn" />
-
-    <Button
-        android:text="Create new Account"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/signUpbtn"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/lgnbtn"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginBottom="24dp"
+        android:layout_above="@+id/signUpbtn"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

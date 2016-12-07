@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.muslimmuhammad.kepoin.R;
@@ -26,10 +27,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 public class KepoIn extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     ImageButton img1,img2,img3,img4,img5;
+    ImageView img13;
     private FirebaseAuth mAuth;
     private FirebaseAuth mAuth2;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -76,6 +79,7 @@ public class KepoIn extends AppCompatActivity
         img3 = (ImageButton)findViewById(R.id.imageButton4);
         img4 = (ImageButton)findViewById(R.id.imageButton5);
         img5 = (ImageButton)findViewById(R.id.imageButton6);
+        img13 = (ImageView)findViewById(R.id.imageView32);
         img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,7 +127,12 @@ public class KepoIn extends AppCompatActivity
             }
         });
          //checkUserExist();
+       // loadprofil();
     }
+
+
+
+
     private void checkUserExist() {
         final String user_id = mAuth.getCurrentUser().getUid();
         mDatabaseUser.addValueEventListener(new ValueEventListener() {
@@ -143,12 +152,40 @@ public class KepoIn extends AppCompatActivity
         });
 
     }
+    private void loadprofil(){
+        mDatabaseUser.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String username = (String) dataSnapshot.child("name").getValue();
+
+                //String post_image = (String) dataSnapshot.child("image").getValue();
+
+                String post_imagew = (String) dataSnapshot.child("image").getValue();
+
+                Picasso.with(KepoIn.this).load(post_imagew).placeholder(R.drawable.logokepo).into(img13);
+
+                //Picasso.with(Setup_activity.this).load(post_image).placeholder(R.drawable.common_full_open_on_phone).into(mSetupImageBtn);
+
+//                Picasso.with(Setup_activity.this).load(post_image).into(mSetupImageBtn);
+//                mSetupImageBtn.setImageResource();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+    }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-
+//        loadprofil();
         mAuth.addAuthStateListener(mAuthListener);
     }
 
@@ -177,10 +214,8 @@ public class KepoIn extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
         if (id == R.id.action_logout) {
+            Toast.makeText(this, "Keluar dari Kepo Indonesia", Toast.LENGTH_SHORT).show();
             logout();
         }
 
@@ -203,14 +238,14 @@ public class KepoIn extends AppCompatActivity
             Intent pindahKepost = new Intent(KepoIn.this,Kepo_Post.class);
             startActivity(pindahKepost);
             Toast.makeText(this, "Postingan Anda", Toast.LENGTH_SHORT).show();
-        }else if (id == R.id.nav_about){
-            Toast.makeText(this, "Informasi Tentang Pengembang", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_share) {
-            Toast.makeText(this,"Berbagi KepoIn Disosmed",Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_send) {
-
-            Toast.makeText(this,"Keluar Dari KepoIn",Toast.LENGTH_SHORT).show();
-            System.exit(0);
+        }else if (id == R.id.nav_login){
+            Intent setting = new Intent(KepoIn.this,Setup_activity.class);
+            startActivity(setting);
+            Toast.makeText(this, "Profile Kepo Mu", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_about) {
+            Intent about = new Intent(KepoIn.this,about.class);
+            startActivity(about);
+            Toast.makeText(this,"Tentang Pengembang",Toast.LENGTH_SHORT).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

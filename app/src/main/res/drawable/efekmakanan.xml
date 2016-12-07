@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <!--definisi button klik efec-->
-    <!--definisi button klik terfokus-->
-    <!--definisi button klik efec-->
-    <item android:state_pressed="true" android:drawable="@drawable/flora" />
-    <item android:state_pressed="true" android:drawable="@drawable/flora" />
-    <item android:drawable="@drawable/flora" />
-</selector>
