@@ -84,8 +84,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/efekflora"
-                android:src="@drawable/efekflora" />
+                android:background="@drawable/fauna"
+                android:src="@drawable/fauna" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -106,8 +106,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/efekfauna"
-                android:src="@drawable/efekfauna" />
+                android:background="@drawable/fauna"
+                android:src="@drawable/fauna" />
 
             <ImageButton
             android:layout_width="match_parent"

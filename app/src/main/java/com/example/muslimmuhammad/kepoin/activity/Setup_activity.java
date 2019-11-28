@@ -3,8 +3,8 @@ package com.example.muslimmuhammad.kepoin.activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -12,8 +12,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.example.muslimmuhammad.kepoin.R;
-import com.example.muslimmuhammad.kepoin.model.KepoPost;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -24,8 +22,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -118,7 +114,7 @@ public class Setup_activity extends AppCompatActivity {
 
                 mNameField.setText(username);
 
-                //Picasso.with(Setup_activity.this).load(post_image).placeholder(R.drawable.common_full_open_on_phone).into(mSetupImageBtn);
+                Picasso.with(Setup_activity.this).load(post_image).placeholder(R.drawable.common_full_open_on_phone).into(mSetupImageBtn);
 
 //                Picasso.with(Setup_activity.this).load(post_image).into(mSetupImageBtn);
 //                mSetupImageBtn.setImageResource();

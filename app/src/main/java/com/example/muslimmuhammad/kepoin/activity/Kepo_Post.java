@@ -2,20 +2,17 @@ package com.example.muslimmuhammad.kepoin.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.muslimmuhammad.kepoin.R;
 import com.example.muslimmuhammad.kepoin.model.KepoPost;
-import com.example.muslimmuhammad.kepoin.model.PostModel;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -179,16 +176,16 @@ public class Kepo_Post extends AppCompatActivity {
             mView = itemView;
             final Context context = null;
 
-            mLikeBtn = (ImageButton)mView.findViewById(R.id.BtnLike);
+            mLikeBtn = mView.findViewById(R.id.BtnLike);
             mDatabaseLike =FirebaseDatabase.getInstance().getReference().child("Likes");
             mAuth = FirebaseAuth.getInstance();
             mDatabaseLike.keepSynced(true);
-            ImageBro = (ImageView) mView.findViewById(R.id.post2_gambar);
-            titlebro = (TextView)mView.findViewById(R.id.post2_judul);
-            Kategori = (TextView)mView.findViewById(R.id.post2_kategori);
-            descbro = (TextView) mView.findViewById(R.id.post2_judul);
-            Provinsi = (TextView)mView.findViewById(R.id.post2_provinsi);
-            Username = (TextView)mView.findViewById(R.id.post2_username);
+            ImageBro = mView.findViewById(R.id.post2_gambar);
+            titlebro = mView.findViewById(R.id.post2_judul);
+            Kategori = mView.findViewById(R.id.post2_kategori);
+            descbro = mView.findViewById(R.id.post2_judul);
+            Provinsi = mView.findViewById(R.id.post2_provinsi);
+            Username = mView.findViewById(R.id.post2_username);
 
             Username.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -204,9 +201,9 @@ public class Kepo_Post extends AppCompatActivity {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     if(dataSnapshot.child(post_key).hasChild(mAuth.getCurrentUser().getUid())){
-                        mLikeBtn.setImageResource(R.drawable.thumbsred);
+                        mLikeBtn.setImageResource(R.drawable.ic_thumb_up_black_24dp);
                     }else {
-                        mLikeBtn.setImageResource(R.drawable.thumbwhite);
+                        mLikeBtn.setImageResource(R.drawable.ic_thumb_up_outline);
                     }
                 }
 

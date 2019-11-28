@@ -1,13 +1,9 @@
 package com.example.muslimmuhammad.kepoin.activity;
 
 
-import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -16,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -126,8 +123,8 @@ public class KepoIn extends AppCompatActivity
                 startActivity(pindah);
             }
         });
-         //checkUserExist();
-       // loadprofil();
+        checkUserExist();
+//        loadprofil();
     }
 
 
@@ -162,9 +159,9 @@ public class KepoIn extends AppCompatActivity
 
                 String post_imagew = (String) dataSnapshot.child("image").getValue();
 
-                Picasso.with(KepoIn.this).load(post_imagew).placeholder(R.drawable.logokepo).into(img13);
+                Picasso.with(KepoIn.this).load(post_imagew).placeholder(R.drawable.logo).into(img13);
 
-                //Picasso.with(Setup_activity.this).load(post_image).placeholder(R.drawable.common_full_open_on_phone).into(mSetupImageBtn);
+//                Picasso.with(Setup_activity.this).load(post_image).placeholder(R.drawable.common_full_open_on_phone).into(mSetupImageBtn);
 
 //                Picasso.with(Setup_activity.this).load(post_image).into(mSetupImageBtn);
 //                mSetupImageBtn.setImageResource();
@@ -243,8 +240,6 @@ public class KepoIn extends AppCompatActivity
             startActivity(setting);
             Toast.makeText(this, "Profile Kepo Mu", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_about) {
-            Intent about = new Intent(KepoIn.this,about.class);
-            startActivity(about);
             Toast.makeText(this,"Tentang Pengembang",Toast.LENGTH_SHORT).show();
         }
 

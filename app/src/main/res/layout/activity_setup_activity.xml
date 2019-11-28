@@ -59,7 +59,7 @@
 
 
                 android:id="@+id/imageBro"
-                android:src="@drawable/logokepo"
+                android:src="@drawable/logo"
                 android:layout_marginTop="39dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true" />
