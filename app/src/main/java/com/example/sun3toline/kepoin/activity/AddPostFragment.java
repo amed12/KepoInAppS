@@ -1,26 +1,19 @@
-package com.example.muslimmuhammad.kepoin.activity;
+package com.example.sun3toline.kepoin.activity;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
-import com.example.muslimmuhammad.kepoin.R;
-import com.example.muslimmuhammad.kepoin.model.PostModel;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.sun3toline.kepoin.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -34,8 +27,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
-import static android.app.Activity.RESULT_OK;
 
 /**
  * Created by coldwarrior on 21/11/16.
@@ -65,10 +56,10 @@ public class AddPostFragment extends AppCompatActivity {
         setContentView(R.layout.upload_user);
         mAuth = FirebaseAuth.getInstance();
         mCurrentUser = mAuth.getCurrentUser();
-        txtdesc = (EditText) findViewById(R.id.edt3);
-        txttitle = (EditText) findViewById(R.id.edt1);
-        txtimage = (ImageButton) findViewById(R.id.imageBro);
-        bSubmit = (Button)findViewById(R.id.btn_input);
+        txtdesc = findViewById(R.id.edt3);
+        txttitle = findViewById(R.id.edt1);
+        txtimage = findViewById(R.id.imageBro);
+        bSubmit = findViewById(R.id.btn_input);
         mDatabaseReference = FirebaseStorage.getInstance().getReference();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Post");
         mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Users").child(mCurrentUser.getUid());

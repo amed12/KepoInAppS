@@ -5,20 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.muslimmuhammad.kepoin.activity.Setup_activity">
-
-    <TextView
-        android:text="Profile Kepo Mu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/textView"
-        android:typeface="sans"
-        android:textSize="18sp"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused"
-        android:textStyle="normal|bold"
-        android:textAlignment="center" />
+    tools:context="com.example.sun3toline.kepoin.activity.Setup_activity">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -26,29 +13,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:singleLine="true"
-                android:id="@+id/edt1"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_text_profil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imageBro"
-                android:background="@drawable/input_outline"
-                android:padding="15dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:hint="ID"
+                android:layout_margin="4dp"
+                android:hint="Your Username">
 
-                />
-            <Button
-                android:layout_below="@+id/edt1"
-                android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/input_outline"
+                    android:hint="USERNAME"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/input_text_profil"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:id="@+id/btn_input"
-                android:text="INPUT"
-                android:textColor="@color/colorPrimary"
-                android:layout_alignParentBottom="true"/>
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:text="Upload Profil" />
 
             <ImageButton
                 android:layout_width="250dp"
@@ -56,8 +48,6 @@
                 android:background="#00ffffff"
                 android:scaleType="centerCrop"
                 android:adjustViewBounds="true"
-
-
                 android:id="@+id/imageBro"
                 android:src="@drawable/logo"
                 android:layout_marginTop="39dp"

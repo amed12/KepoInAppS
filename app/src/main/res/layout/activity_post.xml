@@ -4,9 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-
-    tools:context="com.example.muslimmuhammad.kepoin.activity.Post">
+    tools:context="com.example.sun3toline.kepoin.activity.Post">
     <TextView
         android:id="@+id/tv_no_movies"
         android:layout_width="match_parent"
@@ -30,7 +28,7 @@
         android:visibility="gone"
         />
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -39,15 +37,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/bloglist"></android.support.v7.widget.RecyclerView>
+                android:id="@+id/bloglist"></androidx.recyclerview.widget.RecyclerView>
         </FrameLayout>
 
 
-    </android.support.v4.widget.SwipeRefreshLayout>
-    <android.support.design.widget.FloatingActionButton
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,6 +69,4 @@
 
         android:indeterminateTint="@color/colorAccent"
         android:indeterminateTintMode="src_atop"/>
-
-
 </RelativeLayout>

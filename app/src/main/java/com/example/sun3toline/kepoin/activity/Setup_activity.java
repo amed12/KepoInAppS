@@ -1,18 +1,19 @@
-package com.example.muslimmuhammad.kepoin.activity;
+package com.example.sun3toline.kepoin.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-import com.example.muslimmuhammad.kepoin.R;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.sun3toline.kepoin.R;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,7 +30,7 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 public class Setup_activity extends AppCompatActivity {
     private ImageButton mSetupImageBtn;
     private EditText mNameField;
-    private Button mSubmitBtn;
+    private MaterialButton mSubmitBtn;
     private Uri mImageUri = null;
     private DatabaseReference mDatabaseUser;
     private static final int GALLERY_REQUEST = 1;
@@ -43,9 +44,9 @@ public class Setup_activity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mStorageImage = FirebaseStorage.getInstance().getReference().child("Profil_image");
         mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Users");
-        mSubmitBtn = (Button)findViewById(R.id.btn_input);
-        mNameField = (EditText) findViewById(R.id.edt1);
-        mSetupImageBtn = (ImageButton)findViewById(R.id.imageBro);
+        mSubmitBtn = findViewById(R.id.btn_input);
+        mNameField = findViewById(R.id.edt1);
+        mSetupImageBtn = findViewById(R.id.imageBro);
         mProgress = new ProgressDialog(this);
 
         mSetupImageBtn.setOnClickListener(new View.OnClickListener() {

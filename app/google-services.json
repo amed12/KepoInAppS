@@ -19,7 +19,7 @@
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.muslimmuhammad.kepoin",
-            "certificate_hash": "5FF6768FF902FAB76F9ADE4AC1BD2593ABE1362A"
+            "certificate_hash": "5ff6768ff902fab76f9ade4ac1bd2593abe1362a"
           }
         },
         {
@@ -33,20 +33,124 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "462570300224-fnmjmpuagg20mei0j78f4muv7orb25eh.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462570300224:android:76b48f92c51b809d",
+        "android_client_info": {
+          "package_name": "com.example.muslimmuhammad.kepoin1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "462570300224-k5tqmp1bihrvovsut6rt932mhifilpgv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.muslimmuhammad.kepoin1",
+            "certificate_hash": "5ff6768ff902fab76f9ade4ac1bd2593abe1362a"
+          }
         },
-        "ads_service": {
-          "status": 2
+        {
+          "client_id": "462570300224-fnmjmpuagg20mei0j78f4muv7orb25eh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlYk5yIciS3l8HKpvv6576EYyhj6fpsrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "462570300224-fnmjmpuagg20mei0j78f4muv7orb25eh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462570300224:android:6d93a5e4dbfbc154",
+        "android_client_info": {
+          "package_name": "com.example.muslimmuhammad.kepoinv21"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "462570300224-djklgklt7fckt22givrdu5avrhrdqgds.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.muslimmuhammad.kepoinv21",
+            "certificate_hash": "ed7478dfcc8681335793c97914fe6502f1024fb5"
+          }
+        },
+        {
+          "client_id": "462570300224-fnmjmpuagg20mei0j78f4muv7orb25eh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlYk5yIciS3l8HKpvv6576EYyhj6fpsrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "462570300224-fnmjmpuagg20mei0j78f4muv7orb25eh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462570300224:android:e8dcc80890d091ca4550a5",
+        "android_client_info": {
+          "package_name": "com.example.sun3toline.kepoin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "462570300224-tme42vgkjb4pk8vko6p53cc6hdsrlnch.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sun3toline.kepoin",
+            "certificate_hash": "8462337402d69348fa28ddfae4077f6bc91e40ea"
+          }
+        },
+        {
+          "client_id": "462570300224-fnmjmpuagg20mei0j78f4muv7orb25eh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlYk5yIciS3l8HKpvv6576EYyhj6fpsrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "462570300224-fnmjmpuagg20mei0j78f4muv7orb25eh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

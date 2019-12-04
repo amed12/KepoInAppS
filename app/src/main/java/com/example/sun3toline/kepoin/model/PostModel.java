@@ -1,4 +1,4 @@
-package com.example.muslimmuhammad.kepoin.model;
+package com.example.sun3toline.kepoin.model;
 
 /**
  * Created by coldwarrior on 21/11/16.

@@ -1,18 +1,19 @@
-package com.example.muslimmuhammad.kepoin.activity;
+package com.example.sun3toline.kepoin.activity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.muslimmuhammad.kepoin.R;
-import com.example.muslimmuhammad.kepoin.model.KepoPost;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.sun3toline.kepoin.R;
+import com.example.sun3toline.kepoin.model.KepoPost;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -51,14 +52,13 @@ public class Kepo_Post extends AppCompatActivity {
         String currentUserID = mAuth.getCurrentUser().getUid();
 
         mQueryCurrentUser = mDatabaseCurrentUser.orderByChild("uid").equalTo(currentUserID);
-        mPostList = (RecyclerView) findViewById(R.id.post_list);
+        mPostList = findViewById(R.id.post_list);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setReverseLayout(true);
         layoutManager.setStackFromEnd(true);
         mPostList.setHasFixedSize(true);
         mPostList.setLayoutManager(layoutManager);
-
 
 
     }
@@ -69,10 +69,10 @@ public class Kepo_Post extends AppCompatActivity {
         loadphoto();
     }
 
-    private void loadphoto(){
+    private void loadphoto() {
 
         showProgress();
-        FirebaseRecyclerAdapter<KepoPost,Kepo_Post.BlogViewHolder> adapter = new FirebaseRecyclerAdapter<KepoPost, Kepo_Post.BlogViewHolder>(
+        FirebaseRecyclerAdapter<KepoPost, Kepo_Post.BlogViewHolder> adapter = new FirebaseRecyclerAdapter<KepoPost, Kepo_Post.BlogViewHolder>(
                 KepoPost.class,
                 R.layout.item_list,
                 Kepo_Post.BlogViewHolder.class,
@@ -82,7 +82,7 @@ public class Kepo_Post extends AppCompatActivity {
             @Override
             protected void populateViewHolder(final Kepo_Post.BlogViewHolder viewHolder, final KepoPost model, int position) {
 
-                final String post_key = getRef(position).getKey() ;
+                final String post_key = getRef(position).getKey();
                 //Picasso.with(Kepo_Post.this).load(model.getImage()).into(viewHolder.ImageBro);
                 Picasso.with(Kepo_Post.this).load(model.getImage()).networkPolicy(NetworkPolicy.OFFLINE).into(viewHolder.ImageBro, new Callback() {
                     @Override
@@ -106,8 +106,8 @@ public class Kepo_Post extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         //Toast.makeText(Kepo_Post.this,post_key,Toast.LENGTH_LONG).show();
-                        Intent singleBlogIntent = new Intent(Kepo_Post.this,BlogSingleActivity.class);
-                        singleBlogIntent.putExtra("blog_id",post_key);
+                        Intent singleBlogIntent = new Intent(Kepo_Post.this, BlogSingleActivity.class);
+                        singleBlogIntent.putExtra("blog_id", post_key);
                         startActivity(singleBlogIntent);
                     }
                 });
@@ -119,26 +119,26 @@ public class Kepo_Post extends AppCompatActivity {
 
                         mProssesLike = true;
 
-                            mDatabaseLike.addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                    if(mProssesLike){
-                                        if(dataSnapshot.child(post_key).hasChild(mAuth.getCurrentUser().getUid())){
-                                            mDatabaseLike.child(post_key).child(mAuth.getCurrentUser().getUid()).removeValue();
-                                            mProssesLike = false;
-                                        }else {
-                                            mDatabaseLike.child(post_key).child(mAuth.getCurrentUser().getUid()).setValue("RandomValue");
-                                            mProssesLike = false;
-                                        }
+                        mDatabaseLike.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                if (mProssesLike) {
+                                    if (dataSnapshot.child(post_key).hasChild(mAuth.getCurrentUser().getUid())) {
+                                        mDatabaseLike.child(post_key).child(mAuth.getCurrentUser().getUid()).removeValue();
+                                        mProssesLike = false;
+                                    } else {
+                                        mDatabaseLike.child(post_key).child(mAuth.getCurrentUser().getUid()).setValue("RandomValue");
+                                        mProssesLike = false;
                                     }
-
                                 }
 
-                                @Override
-                                public void onCancelled(DatabaseError databaseError) {
+                            }
 
-                                }
-                            });
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
 
 
                     }
@@ -177,13 +177,13 @@ public class Kepo_Post extends AppCompatActivity {
             final Context context = null;
 
             mLikeBtn = mView.findViewById(R.id.BtnLike);
-            mDatabaseLike =FirebaseDatabase.getInstance().getReference().child("Likes");
+            mDatabaseLike = FirebaseDatabase.getInstance().getReference().child("Likes");
             mAuth = FirebaseAuth.getInstance();
             mDatabaseLike.keepSynced(true);
             ImageBro = mView.findViewById(R.id.post2_gambar);
             titlebro = mView.findViewById(R.id.post2_judul);
             Kategori = mView.findViewById(R.id.post2_kategori);
-            descbro = mView.findViewById(R.id.post2_judul);
+            descbro = mView.findViewById(R.id.post2_penjelasan);
             Provinsi = mView.findViewById(R.id.post2_provinsi);
             Username = mView.findViewById(R.id.post2_username);
 
@@ -196,13 +196,14 @@ public class Kepo_Post extends AppCompatActivity {
 
 
         }
-        public void  setmLikeBtn (final String post_key){
+
+        public void setmLikeBtn(final String post_key) {
             mDatabaseLike.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    if(dataSnapshot.child(post_key).hasChild(mAuth.getCurrentUser().getUid())){
+                    if (dataSnapshot.child(post_key).hasChild(mAuth.getCurrentUser().getUid())) {
                         mLikeBtn.setImageResource(R.drawable.ic_thumb_up_black_24dp);
-                    }else {
+                    } else {
                         mLikeBtn.setImageResource(R.drawable.ic_thumb_up_outline);
                     }
                 }

@@ -4,11 +4,12 @@
     android:id="@+id/activity_kepo__post"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.muslimmuhammad.kepoin.activity.Kepo_Post">
-        <android.support.v7.widget.RecyclerView
+    tools:context="com.example.sun3toline.kepoin.activity.Kepo_Post">
+
+    <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/post_list">
 
-        </android.support.v7.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>
 </RelativeLayout>

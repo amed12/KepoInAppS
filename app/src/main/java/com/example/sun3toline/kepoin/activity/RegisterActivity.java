@@ -1,25 +1,25 @@
-package com.example.muslimmuhammad.kepoin.activity;
+package com.example.sun3toline.kepoin.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
-import com.example.muslimmuhammad.kepoin.R;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.sun3toline.kepoin.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText mNameField;
@@ -43,10 +43,10 @@ public class RegisterActivity extends AppCompatActivity {
 
         mProgress = new ProgressDialog(this);
 
-        mNameField = (EditText)findViewById(R.id.nameField);
-        mEmailField = (EditText)findViewById(R.id.emailField);
-        mPasswordField = (EditText)findViewById(R.id.passwordField);
-        mRegisterBtn = (Button)findViewById(R.id.registerBtn);
+        mNameField = findViewById(R.id.nameField);
+        mEmailField = findViewById(R.id.emailField);
+        mPasswordField = findViewById(R.id.passwordField);
+        mRegisterBtn = findViewById(R.id.registerBtn);
         
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,25 +67,32 @@ public class RegisterActivity extends AppCompatActivity {
 
             mProgress.setMessage("Signing Up");
             mProgress.show();
+
             mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
+                        if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                            Toast.makeText(RegisterActivity.this, "User with this email already exist.", Toast.LENGTH_SHORT).show();
+                        }
                         String user_id = mAuth.getCurrentUser().getUid();
                         DatabaseReference current_user_db = mDatabase.child(user_id);
                         current_user_db.child("name").setValue(name);
                         current_user_db.child("image").setValue("default");
-                        Log.e("ErrorRegister", "onComplete: Failed=" + Objects.requireNonNull(task.getException()).getMessage());
                         mProgress.dismiss();
-
                         Intent mainIntent = new Intent(RegisterActivity.this,KepoIn.class);
                         mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(mainIntent);
-
+                    } else {
+                        mProgress.dismiss();
+                        mEmailField.setError("Email already exist");
                     }
-
                 }
             });
         }
+    }
+
+    private void isUserExist(String email) {
+
     }
 }

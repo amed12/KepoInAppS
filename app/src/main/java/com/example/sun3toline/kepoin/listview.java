@@ -1,10 +1,10 @@
-package com.example.muslimmuhammad.kepoin;
+package com.example.sun3toline.kepoin;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.Window;
 
-import com.example.muslimmuhammad.kepoin.activity.KepoIn;
+import com.example.sun3toline.kepoin.activity.KepoIn;
 
 /**
  * Created by Muslim Muhammad on 10/16/2016.

@@ -9,7 +9,7 @@
     android:paddingRight="20dp"
     android:paddingTop="20dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.muslimmuhammad.kepoin.activity.KepoIn"
+    tools:context="com.example.sun3toline.kepoin.activity.KepoIn"
     tools:showIn="@layout/app_bar_kepo_in">
 
     <ScrollView
