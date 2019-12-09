@@ -4,7 +4,7 @@
     android:id="@+id/activity_kepo__post"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sun3toline.kepoin.activity.Kepo_Post">
+    tools:context="com.achmad.sun3toline.kepoin.activity.Kepo_Post">
 
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"

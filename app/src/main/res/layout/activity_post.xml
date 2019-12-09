@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sun3toline.kepoin.activity.Post">
+    tools:context="com.achmad.sun3toline.kepoin.activity.Post">
     <TextView
         android:id="@+id/tv_no_movies"
         android:layout_width="match_parent"

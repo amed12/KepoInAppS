@@ -16,7 +16,7 @@
             android:id="@+id/post_image"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
-            app:srcCompat="@drawable/ic_logo"
+            app:srcCompat="@drawable/logo"
 
             />
         <TextView

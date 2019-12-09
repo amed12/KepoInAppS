@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.example.sun3toline.kepoin.activity.BlogSingleActivity">
+    tools:context="com.achmad.sun3toline.kepoin.activity.BlogSingleActivity">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -5,9 +5,9 @@ android {
     buildToolsVersion "29.0.0"
 
     defaultConfig {
-        applicationId "com.example.sun3toline.kepoin"
+        applicationId "com.achmad.sun3toline.kepoin"
         minSdkVersion 16
-        targetSdkVersion 24
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
     }
@@ -24,6 +24,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
     implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation "androidx.constraintlayout:constraintlayout:2.0.0-beta2"
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.firebase:firebase-storage:9.6.0'

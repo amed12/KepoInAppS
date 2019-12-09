@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.sun3toline.kepoin">
+    package="com.achmad.sun3toline.kepoin">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="com.example.sun3toline.kepoin.activity.KepoIn"
+            android:name="com.achmad.sun3toline.kepoin.activity.KepoIn"
             android:label="Kepo Indonesia"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -28,47 +28,47 @@
             android:theme="@style/Base.Theme.AppCompat" />
 
         <activity
-            android:name="com.example.sun3toline.kepoin.activity.Province"
+            android:name="com.achmad.sun3toline.kepoin.activity.Province"
             android:label="Propinsi"
-            android:parentActivityName="com.example.sun3toline.kepoin.activity.KepoIn">
+            android:parentActivityName="com.achmad.sun3toline.kepoin.activity.KepoIn">
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.sun3toline.kepoin.activity.KepoIn" />
+            android:value="com.achmad.sun3toline.kepoin.activity.KepoIn" />
         </activity>
 
-        <activity android:name="com.example.sun3toline.kepoin.activity.AddPostFragment" />
-        <activity android:name="com.example.sun3toline.kepoin.activity.Post" />
-        <activity android:name="com.example.sun3toline.kepoin.activity.Kepo_Post" />
+        <activity android:name="com.achmad.sun3toline.kepoin.activity.AddPostFragment" />
+        <activity android:name="com.achmad.sun3toline.kepoin.activity.Post" />
+        <activity android:name="com.achmad.sun3toline.kepoin.activity.Kepo_Post" />
 
         <activity
-            android:name="com.example.sun3toline.kepoin.activity.RegisterActivity"
+            android:name="com.achmad.sun3toline.kepoin.activity.RegisterActivity"
         android:label="Sign in"
-            android:parentActivityName="com.example.sun3toline.kepoin.activity.LoginActivity">
+            android:parentActivityName="com.achmad.sun3toline.kepoin.activity.LoginActivity">
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.sun3toline.kepoin.activity.LoginActivity" />
+            android:value="com.achmad.sun3toline.kepoin.activity.LoginActivity" />
         </activity>
 
         <activity
-            android:name="com.example.sun3toline.kepoin.activity.LoginActivity"
+            android:name="com.achmad.sun3toline.kepoin.activity.LoginActivity"
         android:label="Login"/>
 
         <activity
-            android:name="com.example.sun3toline.kepoin.activity.Setup_activity"
+            android:name="com.achmad.sun3toline.kepoin.activity.Setup_activity"
             android:label="Profile"
-            android:parentActivityName="com.example.sun3toline.kepoin.activity.KepoIn">
+            android:parentActivityName="com.achmad.sun3toline.kepoin.activity.KepoIn">
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.sun3toline.kepoin.activity.KepoIn" />
+            android:value="com.achmad.sun3toline.kepoin.activity.KepoIn" />
         </activity>
 
         <activity
-            android:name="com.example.sun3toline.kepoin.activity.BlogSingleActivity"
+            android:name="com.achmad.sun3toline.kepoin.activity.BlogSingleActivity"
             android:label="Detail Post"
-            android:parentActivityName="com.example.sun3toline.kepoin.activity.Kepo_Post">
+            android:parentActivityName="com.achmad.sun3toline.kepoin.activity.Kepo_Post">
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.sun3toline.kepoin.activity.Kepo_Post" />
+            android:value="com.achmad.sun3toline.kepoin.activity.Kepo_Post" />
         </activity>
 
     </application>
