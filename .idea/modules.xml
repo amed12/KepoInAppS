@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/KepoIn.iml" filepath="$PROJECT_DIR$/KepoIn.iml" />
-      <module fileurl="file://$PROJECT_DIR$/KepoInApps.iml" filepath="$PROJECT_DIR$/KepoInApps.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/KepoInApps-app.iml" filepath="$PROJECT_DIR$/app/KepoInApps-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KepoInApps.iml" filepath="$PROJECT_DIR$/KepoInApps.iml" group="KepoInApps" />
+      <module fileurl="file://$PROJECT_DIR$/app/KepoInApps-app.iml" filepath="$PROJECT_DIR$/app/KepoInApps-app.iml" group="KepoInApps/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
