@@ -1,3 +1,11 @@
+<!--
+  ~ /**
+  ~  * Created by Achmad Fathullah on 10/3/20 9:21 PM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 10/3/20 5:07 PM
+  ~  */
+  -->
+
 <resources>
     <string name="app_name">KepoIn</string>
 
@@ -33,6 +41,7 @@
     <string name="action_logout">Logout</string>
     <string name="action_mark_all_read">Mark All as Read</string>
     <string name="privacy_policy">Privacy Policy</string>
+    <string name="error_take_image">Maaf ulangi lagi</string>
 
 
 </resources>
